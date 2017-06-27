@@ -36,5 +36,10 @@ object Main extends App {
   assert(msftBook.bidsQ.peek.qty == 50, "bidsQ hasn't 50 shares")
   assert(msftBook.offersQ.peek.qty == 50, "offersQ hasn't 50 shares")
 
+  val order4 = Amend(1, order3, Some(52), Some(50))
+  msftBook.processOrderBookRequest(order4)
+
+  println("Best offer: " + msftBook.bestOffer)
+  println("Best bid: " + msftBook.bestBid)
 }
 
